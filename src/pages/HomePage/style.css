@@ -1,0 +1,12 @@
+.dropBar {
+    background: red;
+    height: 3rem;
+    width: 3rem;
+}
+.main {
+    display: flex;
+}
+.titleBar {
+    height: 8rem;
+    width: 100%;
+}
