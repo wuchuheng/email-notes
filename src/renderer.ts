@@ -15,7 +15,7 @@
  * flag:
  *
  * ```
- *  // Create the browser window.
+ *  // Create the browser windows.
  *  mainWindow = new BrowserWindow({
  *    width: 800,
  *    height: 600,

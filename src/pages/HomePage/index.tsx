@@ -1,6 +1,8 @@
 import React, {useEffect, useRef, useState} from "react"
 import {useNavigate} from "react-router-dom";
 import style from './style.module.less';
+import {Button} from "antd";
+import WebkitAppRegion from "../../components/WebkitAppRegion";
 
 const HomePage: React.FC = () => {
     const navigate = useNavigate();
@@ -23,6 +25,11 @@ const HomePage: React.FC = () => {
     }, [])
 
     return (<>
+        <WebkitAppRegion>
+            <div className={style.main}>
+                hello
+            </div>
+        </WebkitAppRegion>
         <div
             className={style.dropBar}
             ref={ref}
@@ -31,6 +38,7 @@ const HomePage: React.FC = () => {
         </div>
         home page
         <button id="toggle-dark-mode" onClick={handleToggleDark}>{mode}</button>
+        <Button type='primary'>hello</Button>
     </>)
 
 }

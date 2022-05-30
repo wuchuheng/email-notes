@@ -4,6 +4,9 @@ declare global {
             toggle: () => promise<boolean>
             system: () => promise<'Light' | 'Dark'>
         }
+        maximize: {
+            toggle: () => promise<void>
+        }
     }
 }
 
