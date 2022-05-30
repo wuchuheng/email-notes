@@ -1,6 +1,6 @@
 import React, {useEffect, useRef, useState} from "react"
 import {useNavigate} from "react-router-dom";
-import './style.css';
+import './style.less';
 
 const HomePage: React.FC = () => {
     const navigate = useNavigate();
@@ -24,7 +24,7 @@ const HomePage: React.FC = () => {
 
     return (<>
         <div
-            className='titleBar'
+            className='dropBar'
             ref={ref}
         >
             <button onClick={handleLoginPage}> login </button>
