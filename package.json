@@ -71,7 +71,7 @@
                   "js": "./src/renderer.ts",
                   "name": "main_window",
                   "preload": {
-                    "js": "./src/windows/mainWindow/preload.ts"
+                    "js": "./src/mainProcess/windows/mainWindow/preload.ts"
                   }
                 }
               ]
