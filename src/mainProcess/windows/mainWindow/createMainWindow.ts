@@ -6,15 +6,14 @@
  * @Time        2022/05/31 03:18
  */
 
-import {
-  app, BrowserWindow, ipcMain, Menu, nativeTheme,
-} from 'electron';
-import BrowserWindowConstructorOptions = Electron.Main.BrowserWindowConstructorOptions;
+import { app, BrowserWindow, Menu } from 'electron';
 import windowMaximizeToggleEvent from './events/windowMaximizeToggleEvent';
+import darkModeToggleEnvent from './events/darkModeToggleEnvent';
+import darkModelSystemEvent from './events/darkModelSystemEvent';
+import BrowserWindowConstructorOptions = Electron.Main.BrowserWindowConstructorOptions;
 
 declare const MAIN_WINDOW_WEBPACK_ENTRY: string;
 declare const MAIN_WINDOW_PRELOAD_WEBPACK_ENTRY: string;
-type DarkModeToggleReturnType = Awaited<ReturnType< typeof window.darkMode.toggle>>;
 
 export const options: BrowserWindowConstructorOptions = {
   height: 600,
@@ -65,15 +64,8 @@ const createMainWindow = (): void => {
   ]);
 
   Menu.setApplicationMenu(menu);
-
-  ipcMain.handle('dark-mode:toggle', (): DarkModeToggleReturnType => {
-    nativeTheme.themeSource = nativeTheme.shouldUseDarkColors ? 'light' : 'dark';
-
-    return nativeTheme.shouldUseDarkColors;
-  });
-  ipcMain.handle('dark-mode:system', () => {
-    nativeTheme.themeSource = 'system';
-  });
+  darkModeToggleEnvent();
+  darkModelSystemEvent();
   windowMaximizeToggleEvent(mainWindow);
 };
 

@@ -1,7 +1,8 @@
 import { BrowserWindow, ipcMain } from 'electron';
 
+export const windowMaximizeToggleEventName = 'windows-maximize:toggle';
 const windowMaximizeToggleEvent = (win: BrowserWindow) => {
-  ipcMain.handle('windows-maximize:toggle', () => (win.isMaximized() ? win.unmaximize() : win.maximize()));
+  ipcMain.handle(windowMaximizeToggleEventName, () => (win.isMaximized() ? win.unmaximize() : win.maximize()));
 };
 
 export default windowMaximizeToggleEvent;
