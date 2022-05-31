@@ -1,24 +1,24 @@
 import * as React from 'react';
-import {HashRouter, useRoutes} from "react-router-dom";
-import routes from "./routes";
-import {createRoot} from "react-dom/client";
+import { HashRouter, useRoutes } from 'react-router-dom';
+import { createRoot } from 'react-dom/client';
+import routes from './routes';
 
 const App: React.FC = () => {
-    const element = useRoutes(routes)
+  const element = useRoutes(routes);
 
-    return (<>
+  return (<>
         {element}
-    </>)
-}
+    </>);
+};
 
 function render() {
-    const container = document.getElementById('root');
-    const root = createRoot(container);
-    root.render(
+  const container = document.getElementById('root');
+  const root = createRoot(container);
+  root.render(
         <HashRouter>
             <App />
-        </HashRouter>
-    );
+        </HashRouter>,
+  );
 }
 
 render();

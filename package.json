@@ -9,8 +9,14 @@
     "package": "electron-forge package",
     "make": "npm run generateIcon && electron-forge make",
     "publish": "electron-forge publish",
-    "lint": "eslint --ext .ts,.tsx .",
+    "lint": "eslint --fix --ext .ts,.tsx .",
     "generateIcon": "electron-icon-builder --input=./src/assets/icon-1024x1024.png --output=./src"
+  },
+  "lint-staged": {
+    "src/**/*.{ts,tsx}": [
+      "npm run lint",
+      "git add"
+    ]
   },
   "keywords": [],
   "author": {
@@ -85,17 +91,21 @@
     "@electron-forge/plugin-webpack": "6.0.0-beta.63",
     "@types/react": "^18.0.9",
     "@types/react-dom": "^18.0.5",
-    "@typescript-eslint/eslint-plugin": "^5.0.0",
+    "@typescript-eslint/eslint-plugin": "^5.13.0",
     "@typescript-eslint/parser": "^5.0.0",
     "@vercel/webpack-asset-relocator-loader": "1.7.0",
     "css-loader": "^6.7.1",
     "electron": "19.0.1",
     "electron-icon-builder": "^2.0.1",
     "eslint": "^8.0.1",
+    "eslint-config-airbnb": "^19.0.4",
+    "eslint-config-airbnb-typescript": "^17.0.0",
     "eslint-plugin-import": "^2.25.0",
     "fork-ts-checker-webpack-plugin": "^6.0.1",
+    "husky": "^8.0.1",
     "less": "^4.1.2",
     "less-loader": "^11.0.0",
+    "lint-staged": "^12.4.3",
     "node-loader": "^2.0.0",
     "prettier": "2.6.2",
     "style-loader": "^3.3.1",
