@@ -1,4 +1,8 @@
 declare global {
+  type AccountType = {
+    username: string
+    password: string
+  };
   interface Window {
     darkMode: {
       toggle: () => promise<boolean>
@@ -7,6 +11,7 @@ declare global {
     maximize: {
       toggle: () => promise<void>
     }
+    login: (account: AccountType) => Promise<void>
   }
 }
 

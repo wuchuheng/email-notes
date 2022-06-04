@@ -1,10 +1,20 @@
+@import "../../global";
+
 .main {
   height: 100vh;
   width: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  .containerWrapper {
+    .container {
+      width: 30vw;
+    }
+    height: calc(100vh - @webkitAppRegionHeight);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
   .title {
+    margin: 0;
+    font-weight: bold;
     text-align: center;
   }
   .loginButton {

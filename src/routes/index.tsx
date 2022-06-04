@@ -7,13 +7,9 @@ const routes: RouteObject[] = [
   {
     path: '/',
     children: [
-      // {
-      //   path: '',
-      //   element: <HomePage />,
-      // },
       {
         path: '',
-        element: <LoginPage />,
+        element: <HomePage />,
       },
       {
         path: 'login',

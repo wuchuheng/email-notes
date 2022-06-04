@@ -7,9 +7,13 @@
  */
 
 import { app, BrowserWindow, Menu } from 'electron';
+import { createConnection } from 'typeorm';
+import * as path from 'path';
 import windowMaximizeToggleEvent from './events/windowMaximizeToggleEvent';
 import darkModeToggleEnvent from './events/darkModeToggleEnvent';
 import darkModelSystemEvent from './events/darkModelSystemEvent';
+import loginEvnet from './events/loginEvnet';
+import Category from '../../entities/Category';
 import BrowserWindowConstructorOptions = Electron.Main.BrowserWindowConstructorOptions;
 
 declare const MAIN_WINDOW_WEBPACK_ENTRY: string;
@@ -67,6 +71,34 @@ const createMainWindow = (): void => {
   darkModeToggleEnvent();
   darkModelSystemEvent();
   windowMaximizeToggleEvent(mainWindow);
+  loginEvnet();
+  const sqlfile = path.resolve(__dirname, 'line.sqlite');
+  const AppDataSource = createConnection({
+    type: 'sqlite',
+    database: sqlfile,
+    synchronize: true,
+    entities: [
+      Category,
+    ],
+    logging: true,
+  });
+  AppDataSource
+    .then((res) => {
+      console.log(res);
+      return res.getRepository(Category);
+    }).then((res) => {
+      const c = new Category();
+      c.pid = 1;
+      c.name = 'hello';
+      return res.save(c);
+    }).then((res) => {
+      console.log(res);
+    })
+    .catch((e) => {
+      console.log(e);
+    });
+  setTimeout(() => {
+  }, 5000);
 };
 
 export default createMainWindow;

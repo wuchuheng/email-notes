@@ -89,8 +89,10 @@
     "@electron-forge/maker-squirrel": "^6.0.0-beta.63",
     "@electron-forge/maker-zip": "^6.0.0-beta.63",
     "@electron-forge/plugin-webpack": "6.0.0-beta.63",
+    "@types/imap": "^0.8.35",
     "@types/react": "^18.0.9",
     "@types/react-dom": "^18.0.5",
+    "@types/sqlite3": "^3.1.8",
     "@typescript-eslint/eslint-plugin": "^5.13.0",
     "@typescript-eslint/parser": "^5.0.0",
     "@vercel/webpack-asset-relocator-loader": "1.7.0",
@@ -113,10 +115,17 @@
     "typescript": "~4.5.4"
   },
   "dependencies": {
+    "@wuchuhengtools/helper": "^1.0.18",
+    "@wuchuhengtools/type-writer": "^13.0.1-2",
     "antd": "^4.20.7",
     "electron-squirrel-startup": "^1.0.0",
+    "imap": "^0.8.19",
     "react": "^18.1.0",
     "react-dom": "^18.1.0",
-    "react-router-dom": "6"
+    "react-router-dom": "6",
+    "reflect-metadata": "^0.1.13",
+    "sqlite3": "^5.0.8",
+    "typeorm": "^0.3.6",
+    "typewriter-effect": "^2.18.2"
   }
 }
